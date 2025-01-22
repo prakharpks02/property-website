@@ -11,6 +11,15 @@
     <!-- FAVICON -->
     <link rel="shortcut icon" type="image/x-icon" href="images/flatx-images/favicon.ico">
     <link rel="stylesheet" href="css/jquery-ui.css">
+
+
+    <script src="https://floww0.blob.core.windows.net/websitegraphics/codes/resource/js/vue.js"></script>
+    <script src="https://floww0.blob.core.windows.net/websitegraphics/codes/resource/js/axios.min.js"></script>
+    <link rel="stylesheet" type="text/css"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" />
+
+
+
     <!-- GOOGLE FONTS -->
     <link href="https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i%7CMontserrat:600,800" rel="stylesheet">
     <!-- FONT AWESOME -->
@@ -883,15 +892,16 @@
         <!-- END SECTION POPULAR PLACES -->
 
         <!-- START SECTION FEATURED PROPERTIES -->
-        <section class="featured portfolio bg-white-2 rec-pro full-l">
+        <section class="featured portfolio bg-white-2 rec-pro full-l" id="flatx-app">
             <div class="container-fluid">
                 <div class="sec-title">
                     <h2><span>Featured </span>Properties</h2>
                     <p>These are our featured properties</p>
                 </div>
                 <div class="row portfolio-items">
-                    <div class="item col-xl-6 col-lg-12 col-md-12 col-xs-12 landscapes sale">
-                        <div class="project-single" data-aos="fade-right">
+                    <div class="item col-xl-6 col-lg-12 col-md-12 col-xs-12 landscapes sale" id="index-flatx">
+                        <div class="project-single" data-aos="fade-right" v-for="(property, index) in properties"
+                            :key="property.propertyId">
                             <div class="project-inner project-head">
                                 <div class="homes">
                                     <!-- homes img -->
@@ -912,35 +922,35 @@
                             <!-- homes content -->
                             <div class="homes-content">
                                 <!-- homes address -->
-                                <h3><a href="single-property-1.html">Real Luxury Family House Villa</a></h3>
+                                <h3><a href="single-property-1.html">[[property.title]]</a></h3>
                                 <p class="homes-address mb-3">
                                     <a href="single-property-1.html">
-                                        <i class="fa fa-map-marker"></i><span>Est St, 77 - Central Park South,
-                                            NYC</span>
+                                        <i class="fa fa-map-marker"></i><span>[[property.address]]</span>
                                     </a>
                                 </p>
                                 <!-- homes List -->
                                 <ul class="homes-list clearfix pb-3">
                                     <li class="the-icons">
                                         <i class="flaticon-bed mr-2" aria-hidden="true"></i>
-                                        <span>6 Bedrooms</span>
+                                        <span>[[property.category]]</span>
                                     </li>
                                     <li class="the-icons">
                                         <i class="flaticon-bathtub mr-2" aria-hidden="true"></i>
-                                        <span>3 Bathrooms</span>
+                                        <!-- <span>[[property.parking]]</span> -->
+                                        <span>Yes</span>
                                     </li>
                                     <li class="the-icons">
                                         <i class="flaticon-square mr-2" aria-hidden="true"></i>
-                                        <span>720 sq ft</span>
+                                        <span>[[property.preferredTenants]]</span>
                                     </li>
                                     <li class="the-icons">
                                         <i class="flaticon-car mr-2" aria-hidden="true"></i>
-                                        <span>2 Garages</span>
+                                        <span>[[property.possession]]</span>
                                     </li>
                                 </ul>
                                 <div class="price-properties footer pt-3 pb-0">
                                     <h3 class="title mt-3">
-                                        <a href="single-property-1.html">$ 150,000</a>
+                                        <a href="single-property-1.html">₹ [[property.deposit]]</a>
                                     </h3>
                                     <div class="compare">
                                         <a href="#" title="Compare">
@@ -1225,6 +1235,8 @@
                             </div>
                         </div>
                     </div>
+
+
                     <div class="item col-xl-6 col-lg-12 col-md-12 col-xs-12 it2 web rent no-pb">
                         <div class="project-single no-mb last" data-aos="fade-left">
                             <div class="project-inner project-head">
@@ -2528,6 +2540,7 @@
 
         <!-- MAIN JS -->
         <script src="js/script.js"></script>
+        <script src="js/index-flatx.js"></script>
 
     </div>
     <!-- Wrapper / End -->
