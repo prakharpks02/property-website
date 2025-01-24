@@ -1,10 +1,10 @@
 	if ($('#map-contact').length) {
 		var map = L.map('map-contact', {
-			zoom: 5,
+			zoom: 20,
 			maxZoom: 20,
 			tap: false,
 			gestureHandling: true,
-			center: [40.925372, -74.27654]
+			center: [25.6099, 85.1344]
 		});
 
 		map.scrollWheelZoom.disable();
@@ -21,7 +21,7 @@
 			popupAnchor: [-20, -42]
 		});
 
-		var marker = L.marker([40.925372, -74.27654], {
-			icon: icon
-		}).addTo(map);
+		// var marker = L.marker([40.925372, -74.27654], {
+		// 	icon: icon
+		// }).addTo(map);
 	}
