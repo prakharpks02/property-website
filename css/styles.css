@@ -4567,14 +4567,14 @@ section.counterup {
 .first-footer .top-footer {
   background: #303441;
   color: #333;
-  padding: 6rem 0;
+  padding: 4rem 0;
   border-top: 1px solid #e5e5e5;
 }
 
 .first-footer .logo img {
   width: 180px;
   height: auto;
-  margin-bottom: 1.6rem;
+  /* margin-bottom: 1.6rem; */
 }
 
 @media screen and (max-width: 991px) {
