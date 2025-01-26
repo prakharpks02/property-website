@@ -15,7 +15,7 @@ document.getElementById("searchButton").addEventListener("click", function () {
 
   //   const url = `http://localhost:8000/properties/?${params.toString()}`;
 
-  const url = `https://platform.flatx.in/properties/?${params.toString()}`;
+  const url = `https://platform.flatx.in/?${params.toString()}`;
 
   // Redirect to the constructed URL
   window.location.href = url;
@@ -30,8 +30,6 @@ function fetchProperties() {
       console.log("API Response:", response.data.response);
 
       const properties = response.data.response;
-
-      
 
       const propertiesDiv = document.getElementById("featured-properties");
 
