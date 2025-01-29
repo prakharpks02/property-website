@@ -34,6 +34,34 @@
     <link rel="stylesheet" id="color" href="css/colors/pink.css">
 
 
+    <style>
+        .whats-app {
+            position: fixed;
+            width: 60px;
+            height: 60px;
+            bottom: 40px;
+            right: 15px;
+            background-color: #25d366;
+            color: #FFF;
+            border-radius: 50px;
+            text-align: center;
+            font-size: 30px;
+            box-shadow: 2px 2px 3px #999;
+            z-index: 100;
+        }
+
+        .my-float {
+            margin-top: 16px;
+        }
+    </style>
+
+
+
+
+
+
+
+
     <!-- cdn link -->
     <!-- <script src="https://floww0.blob.core.windows.net/websitegraphics/codes/resource/js/vue.js"></script> -->
     <!-- <script src="https://unpkg.com/vue@3.2.47/dist/vue.global.js"></script> -->
@@ -58,7 +86,8 @@
                     <div class="left-side">
                         <!-- Logo -->
                         <div id="logo">
-                            <a href="/"><img src="images/flatx-images/flatx-new.png" alt="flatX" data-sticky-logo="images/logo-red.svg" />
+                            <a href="/"><img src="images/flatx-images/flatx-new.png" alt="flatX"
+                                    data-sticky-logo="images/flatx-images/flatx-new.png" />
                             </a>
                         </div>
                         <!-- Mobile Navigation -->
@@ -89,6 +118,30 @@
                         <!-- Main Navigation / End -->
                     </div>
                     <!-- Left Side Content / End -->
+
+                    <!-- Right Side Content / End -->
+                    <!-- <div class="right-side d-none d-none d-lg-none d-xl-flex">
+                        
+                        <div class="header-widget">
+                            <a href="https://platform.flatx.in" class="button border">Listing<i
+                                    class="fas fa-laptop-house ml-2"></i></a>
+                        </div>
+                        
+                    </div> -->
+                    <!-- Right Side Content / End -->
+
+                    <!-- Right Side Content / End -->
+                    <div class="header-user-menu user-menu add">
+                        <div class="header-user-name">
+                            <span><a href="https://platform.flatx.in" class="button border">Listing<i
+                                    class="fas fa-laptop-house ml-2"></i></a></span>
+                        </div>
+                    
+                    </div>
+                    <!-- Right Side Content / End -->
+
+
+
                 </div>
             </div>
             <!-- Header / End -->
@@ -130,7 +183,7 @@
                                                 <div class="rld-main-search" style="width: fit-content;margin: auto;">
                                                     <div class="row">
                                                         <div class="rld-single-input">
-                                                            <input type="text" placeholder="Searh by title or address"
+                                                            <input type="text" placeholder="Search by title or address"
                                                                 id="searchQuery">
                                                         </div>
                                                         <div class="rld-single-select ml-22">
@@ -1546,11 +1599,11 @@
         <div class="partners bg-white rec-pro">
             <div class="container-fluid">
                 <div class="sec-title">
-                    <h2><span>Our </span>Partners</h2>
+                    <h2> Backed by</h2>
                     <p>We are backed by following prestigious organisations.</p>
                 </div>
                 <div class="owl-carousel style2">
-                    <div class="owl-item" data-aos="fade-up"><img src="images/flatx-images/partners/startup-bihar.jpeg"
+                    <div class="owl-item" data-aos="fade-up"><img src="images/flatx-images/partners/startup-bihar.png"
                             alt=""></div>
                     <div class="owl-item" data-aos="fade-up"><img src="images/flatx-images/partners/Startup-India.png"
                             alt=""></div>
@@ -1558,12 +1611,15 @@
                             alt=""></div>
                     <div class="owl-item" data-aos="fade-up"><img src="images/flatx-images/partners/CIMP_BIIF.png"
                             alt=""></div>
-                    <div class="owl-item" data-aos="fade-up"><img src="images/flatx-images/partners/ic iit p.jfif"
+                    <div class="owl-item" data-aos="fade-up"><img src="images/flatx-images/partners/ic iit p.png"
                             alt=""></div>
                 </div>
             </div>
         </div>
         <!-- END SECTION PARTNERS -->
+
+
+        
         <!-- START FOOTER -->
         <footer class="first-footer">
             <div class="top-footer">
@@ -1604,9 +1660,9 @@
                         </div>
                         <div class="col-lg-3 col-md-6 ">
                             <div class="navigation">
-                                <h3> Navigation</h3>
-                                <div class="nav-footer text-center">
-                                    <ul class="text-center">
+                                <h3> Navigation </h3>
+                                <div class="nav-footer">
+                                    <ul>
                                         <li><a href="/">Home</a></li>
                                         <li><a href="about">About Us</a></li>
                                         <li><a href="https://platform.flatx.in">Property Listing</a></li>
@@ -1623,7 +1679,7 @@
                             <div class="navigation">
                                 <h3>Company Policies</h3>
                                 <div class="nav-footer">
-                                    <ul class="text-center">
+                                    <ul>
                                         <li><a href="tnc">Terms &nbsp; & Conditions</a></li>
                                         <li><a href="privacy-policy">Privacy Policy</a></li>
                                         <li><a href="shipping-policy">Shipping &nbsp;& Delivery Policy</a></li>
@@ -1640,7 +1696,7 @@
                             <div class="navigation">
                                 <h3>Featured Searches </h3>
                                 <div class="nav-footer">
-                                    <ul class="text-center">
+                                    <ul>
                                         <li><a href="https://platform.flatx.in/?category=Flat&city=Patna">Flats in
                                                 Patna</a>
                                         </li>
@@ -1685,7 +1741,12 @@
             </div>
         </footer>
 
-        <a data-scroll href="#wrapper" class="go-up"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a>
+        <a class="whats-app" href="https://wa.me/919155058222" target="_blank">
+            <i class="fa fa-whatsapp my-float"></i>
+        </a>
+
+        <!-- <a data-scroll href="#wrapper" class="go-up"><i class="fa fa-angle-double-up" aria-hidden="true"></i></a> -->
+
         <!-- END FOOTER -->
 
 
