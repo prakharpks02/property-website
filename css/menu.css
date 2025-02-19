@@ -177,7 +177,7 @@ header.fullwidth .container {
     padding-right: 0;
 }
 a.button.border {
-    border: 1px solid #274abb;
+    border: 1px solid #004aad;
 }
 a.button.border {
     background-color: transparent;
@@ -188,7 +188,9 @@ a.button.border {
 a.button.border, a.button {
     background-color: #004aad;
     top: 0;
-    padding: 10px 20px;
+    text-align: center;
+    left: 37px;
+    padding: 10px;
     color: #fff;
     position: relative;
     text-decoration: none;
@@ -1277,7 +1279,8 @@ em.mm-counter+a.mm-fullsubopen+span {
     width: 50px;
     display: none;
     position: relative;
-    margin: 0 0 23px 0;
+    /* margin: 0 0 23px 0; */
+    margin-top: 8px;
     background-color: #eee;
     border-radius: 4px;
     cursor: pointer;
@@ -1548,6 +1551,8 @@ transform: rotate(-90deg);
 }
 @media only screen and (max-width: 575px) {
     #logo img {
-        margin-right: 60px;
+        margin-top:-10px;
+        width: 75px;
+        
     }
 }

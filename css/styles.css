@@ -7893,7 +7893,7 @@ a.button {
 @media screen and (max-width: 991px) {
   .hd-white a.button.border,
   .hd-whitea.button {
-    width: 86px;
+    width: 100px;
   }
 }
 .right-side.sign {
@@ -8965,7 +8965,7 @@ a.button {
 
   a.button.border,
   a.button {
-    width: 85px;
+    width: 100px;
   }
 }
 @media only screen and (max-width: 767px) {
