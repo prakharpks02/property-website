@@ -13,6 +13,127 @@
     <link rel="stylesheet" href="css/jquery-ui.css">
 
 
+    <style>
+.properties-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  padding-left: 2.3rem ;
+  /* align-items: center;
+  justify-content: center; */
+}
+
+.property-card {
+  display: flex;
+  width: 48%;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  overflow: hidden;
+  background: white;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+.property-image {
+  position: relative;
+  width: 40%;
+}
+
+/* .property-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+} */
+
+.badge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: gray;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 5px;
+  font-size: 12px;
+}
+
+.featured {
+  background: red;
+}
+
+.for-sale {
+  background: green;
+}
+
+.for-rent {
+  background: blue;
+}
+
+.image-icons {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  display: flex;
+  gap: 5px;
+}
+
+.image-icons i {
+  background: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.property-details {
+  width: 100%;
+  padding: 15px;
+}
+
+.property-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  font-size: 14px;
+  color: #555;
+  margin-top: 2rem;
+}
+
+.property-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 10px;
+  padding: 15px;
+}
+.property-image{
+    width: 40%;
+}
+.property-image img{
+    width: 100%;
+    height: 250px;
+}
+.property-details-inner{
+    width: 60%;
+}
+
+
+
+.icons i {
+  cursor: pointer;
+  margin-left: 10px;
+}
+
+@media (max-width: 768px) {
+ .properties-grid {
+    padding-left: 0rem !important;
+ }
+ .property-card{
+    width: 100% !important;
+ }
+
+    
+}
+
+</style>
+
+
     <script src="https://floww0.blob.core.windows.net/websitegraphics/codes/resource/js/vue.js"></script>
     <script src="https://floww0.blob.core.windows.net/websitegraphics/codes/resource/js/axios.min.js"></script>
     <link rel="stylesheet" type="text/css"
@@ -891,91 +1012,14 @@
         </section>
         <!-- END SECTION POPULAR PLACES -->
 
-        <!-- START SECTION FEATURED PROPERTIES -->
-        <section class="featured portfolio bg-white-2 rec-pro full-l" id="flatx-app">
-            <div class="container-fluid">
-                <div class="sec-title">
-                    <h2><span>Featured </span>Properties</h2>
-                    <p>These are our featured properties</p>
-                </div>
-                <div class="row portfolio-items" style="display: flex;">
-                    <div class="item col-xl-6 col-lg-12 col-md-12 col-xs-12 landscapes sale">
-                        <div class="project-single" data-aos="fade-right" v-for="(property, index) in properties"
-                            :key="property.propertyId">
-                            <div class="project-inner project-head">
-                                <div class="homes">
-                                    <!-- homes img -->
-                                    <a href="single-property-1.html" class="homes-img">
-                                        <div class="homes-tag button alt featured">Featured</div>
-                                        <div class="homes-tag button alt sale">For Sale</div>
-                                        <img src="images/blog/b-11.jpg" alt="home-1" class="img-responsive">
-                                    </a>
-                                </div>
-                                <div class="button-effect">
-                                    <a href="single-property-1.html" class="btn"><i class="fa fa-link"></i></a>
-                                    <a href="https://www.youtube.com/watch?v=14semTlwyUY"
-                                        class="btn popup-video popup-youtube"><i class="fas fa-video"></i></a>
-                                    <a href="single-property-2.html" class="img-poppu btn"><i
-                                            class="fa fa-photo"></i></a>
-                                </div>
-                            </div>
-                            <!-- homes content -->
-                            <div class="homes-content">
-                                <!-- homes address -->
-                                <h3><a href="single-property-1.html">[[property.title]]</a></h3>
-                                <p class="homes-address mb-3">
-                                    <a href="single-property-1.html">
-                                        <i class="fa fa-map-marker"></i><span>[[property.address]]</span>
-                                    </a>
-                                </p>
-                                <!-- homes List -->
-                                <ul class="homes-list clearfix pb-3">
-                                    <li class="the-icons">
-                                        <i class="flaticon-bed mr-2" aria-hidden="true"></i>
-                                        <span>[[property.category]]</span>
-                                    </li>
-                                    <li class="the-icons">
-                                        <i class="flaticon-bathtub mr-2" aria-hidden="true"></i>
-                                        <!-- <span>[[property.parking]]</span> -->
-                                        <span>Yes</span>
-                                    </li>
-                                    <li class="the-icons">
-                                        <i class="flaticon-square mr-2" aria-hidden="true"></i>
-                                        <span>[[property.preferredTenants]]</span>
-                                    </li>
-                                    <li class="the-icons">
-                                        <i class="flaticon-car mr-2" aria-hidden="true"></i>
-                                        <span>[[property.possession]]</span>
-                                    </li>
-                                </ul>
-                                <div class="price-properties footer pt-3 pb-0">
-                                    <h3 class="title mt-3">
-                                        <a href="single-property-1.html">₹ [[property.deposit]]</a>
-                                    </h3>
-                                    <div class="compare">
-                                        <a href="#" title="Compare">
-                                            <i class="flaticon-compare"></i>
-                                        </a>
-                                        <a href="#" title="Share">
-                                            <i class="flaticon-share"></i>
-                                        </a>
-                                        <a href="#" title="Favorites">
-                                            <i class="flaticon-heart"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+       
 
-
-                </div>
-                <div class="bg-all">
-                    <a href="properties-full-grid-1.html" class="btn btn-outline-light">View More</a>
-                </div>
-            </div>
-        </section>
-        <!-- END SECTION FEATURED PROPERTIES -->
+        <div id="flatx-app">
+            <div id="loading" style="display: none;">Loading properties...</div>
+            <div id="error"></div>
+            <div id="properties-list" class="properties-grid"></div>
+          </div>
+          
 
         <!-- START SECTION WHY CHOOSE US -->
         <section class="how-it-works bg-white rec-pro">
