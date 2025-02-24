@@ -35,6 +35,159 @@
 
 
     <style>
+        .property-details h3 a {
+            text-decoration: none;
+            /* Remove underline */
+            color: inherit;
+            /* Keep the same text color as the surrounding text */
+        }
+
+        .properties-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding-left: 2.3rem;
+
+        }
+
+        .property-card {
+            display: flex;
+            width: 48%;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .property-image {
+            position: relative;
+            width: 40%;
+        }
+
+        .badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: gray;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 12px;
+        }
+
+        .image-icons {
+            position: absolute;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            gap: 5px;
+        }
+
+        .image-icons i {
+            background: rgba(0, 0, 0, 0.7);
+            color: white;
+            padding: 5px;
+            border-radius: 50%;
+        }
+
+        .property-details {
+            width: 100%;
+            padding: 15px;
+        }
+
+        .property-info {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            grid-template-rows: repeat(2, auto);
+            gap: 13px;
+            justify-content: space-between;
+            align-items: center;
+            text-align: center;
+            margin-top: 1.7rem;
+        }
+
+        .property-info span:nth-child(1) {
+            grid-column: 1;
+            grid-row: 1;
+            text-align: left;
+        }
+
+        /* Top-left */
+        .property-info span:nth-child(2) {
+            grid-column: 2;
+            grid-row: 1;
+            text-align: left;
+        }
+
+        /* Top-right */
+        .property-info span:nth-child(3) {
+            grid-column: 1;
+            grid-row: 2;
+            text-align: left;
+        }
+
+        /* Bottom-left */
+        .property-info span:nth-child(4) {
+            grid-column: 2;
+            grid-row: 2;
+            text-align: left;
+        }
+
+        /* Bottom-right */
+        .property-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 10px;
+            padding: 15px;
+        }
+
+        .property-image {
+            width: 40%;
+        }
+
+        .property-image img {
+            width: 100%;
+            height: 250px;
+        }
+
+        .property-details-inner {
+            width: 60%;
+        }
+
+
+
+        .icons i {
+            cursor: pointer;
+            margin-left: 10px;
+        }
+
+        @media (max-width: 768px) {
+            .properties-grid {
+                padding-left: 0rem !important;
+            }
+
+            .property-card {
+                width: 100% !important;
+            }
+
+            .property-info {
+                margin-top: 1rem;
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .property-info span {
+                grid-column: span 1;
+                text-align: center;
+            }
+
+
+        }
+
         .whats-app {
             position: fixed;
             width: 60px;
@@ -58,7 +211,7 @@
 
 
 
-    
+
 
 
 
@@ -109,7 +262,7 @@
                                     <a href="/about">About</a>
                                 </li>
                                 <li>
-                                    <a href="https://platform.flatx.in">  Listing</a>
+                                    <a href="https://platform.flatx.in"> Listing</a>
                                 </li>
                                 <li><a href="/contact-us">Contact</a></li>
 
@@ -133,15 +286,15 @@
                     <!-- Right Side Content / End -->
                     <div class="header-user-menu user-menu add">
                         <!-- <div class="header-user-name"> -->
-                            <span><a href="https://platform.flatx.in" class="button border"> Listing<i
+                        <span><a href="https://platform.flatx.in" class="button border"> Listing<i
                                     class="fas fa-laptop-house ml-2"></i></a></span>
                         <!-- </div> -->
-                    
+
                     </div>
 
 
 
-                 
+
                     <!-- Right Side Content / End -->
 
 
@@ -367,6 +520,22 @@
         <!-- <div id="featured-properties" class="property-list">
             <p> tushar </p>
           </div> -->
+
+
+        <section class="featured portfolio bg-white-2 rec-pro full-l">
+            <div class="container-fluid">
+                <div class="sec-title">
+                    <h2><span>Featured </span>Properties</h2>
+                    <p>These are our featured properties</p>
+                </div>
+                <div id="flatx-app">
+                    <div id="loading" style="display: none;">Loading properties...</div>
+                    <div id="error"></div>
+                    <div id="properties-list" class="properties-grid"></div>
+                </div>
+            </div>
+        </section>
+
 
 
 
@@ -811,7 +980,8 @@
                                 </h3>
                             </div>
                             <div class="service-text-p">
-                                <p class="text-center"> Find rooms directly from landlords and avoid extra broker fees.
+                                <p class="text-center"> Find rooms directly from landlords and avoid extra broker
+                                    fees.
                                 </p>
                             </div>
                         </div>
@@ -824,7 +994,8 @@
                                 </h3>
                             </div>
                             <div class="service-text-p">
-                                <p class="text-center">Easily search, view, and book your room without any hassle.</p>
+                                <p class="text-center">Easily search, view, and book your room without any hassle.
+                                </p>
                             </div>
                         </div>
                     </article>
@@ -837,7 +1008,8 @@
                                 </h3>
                             </div>
                             <div class="service-text-p">
-                                <p class="text-center"> Our team helps you choose the best room in the right area for
+                                <p class="text-center"> Our team helps you choose the best room in the right area
+                                    for
                                     you.</p>
                             </div>
                         </div>
@@ -1558,7 +1730,8 @@
                     <div class="singleJobClinet" data-aos="zoom-in" data-aos-delay="350">
                         <p>
                             What I love most about FlatX is the transparency. Everything is straightforward, and I
-                            didn’t have to deal with hidden charges. I’ll definitely use their services again if needed!
+                            didn’t have to deal with hidden charges. I’ll definitely use their services again if
+                            needed!
                         </p>
                         <div class="detailJC">
                             <span><img src="images/testimonials/gaurav-testimonial.jpeg" alt="" /></span>
@@ -1569,7 +1742,8 @@
                     </div>
                     <div class="singleJobClinet" data-aos="zoom-in" data-aos-delay="250">
                         <p>
-                            Moving to a new city for studies was stressful, but FlatX took the burden off my shoulders.
+                            Moving to a new city for studies was stressful, but FlatX took the burden off my
+                            shoulders.
                             I found a budget-friendly room near my college without the hassle of brokers. Highly
                             recommend it to everyone!
                         </p>
@@ -1581,7 +1755,8 @@
                     </div>
                     <div class="singleJobClinet" data-aos="zoom-in" data-aos-delay="150">
                         <p>
-                            As a landlord, I was hesitant about listing my property online. But FlatX's team guided me
+                            As a landlord, I was hesitant about listing my property online. But FlatX's team guided
+                            me
                             through the entire process. My property was rented out in less than a week, and I didn’t
                             even have to step out!"
                         </p>
@@ -1623,7 +1798,7 @@
         <!-- END SECTION PARTNERS -->
 
 
-        
+
         <!-- START FOOTER -->
         <footer class="first-footer">
             <div class="top-footer">
@@ -1644,7 +1819,8 @@
                                     <li>
                                         <div class="info">
                                             <i class="fa fa-map-marker" aria-hidden="true"></i>
-                                            <p class="in-p">5th Floor , Maurya Lok Complex , Patna , 800001 , Bihar</p>
+                                            <p class="in-p">5th Floor , Maurya Lok Complex , Patna , 800001 , Bihar
+                                            </p>
                                         </div>
                                     </li>
                                     <li>
@@ -1704,9 +1880,11 @@
                                         <li><a href="https://platform.flatx.in/?category=Flat&city=Patna">Flats in
                                                 Patna</a>
                                         </li>
-                                        <li><a href="https://platform.flatx.in/?category=PG&city=Patna">PG in Patna</a>
+                                        <li><a href="https://platform.flatx.in/?category=PG&city=Patna">PG in
+                                                Patna</a>
                                         </li>
-                                        <li><a href="https://platform.flatx.in/?query=Kankarbagh&category=Flat">Flats in
+                                        <li><a href="https://platform.flatx.in/?query=Kankarbagh&category=Flat">Flats
+                                                in
                                                 Kankarbagh</a></li>
                                         <li class="no-mgb">
                                             <a href="https://platform.flatx.in/?category=Flat&query=Boring%20Road">Flats

@@ -21,51 +21,91 @@ document.getElementById("searchButton").addEventListener("click", function () {
   window.location.href = url;
 });
 
-// Get properties api call
+document.addEventListener("DOMContentLoaded", async function () {
+  const app = {
+    properties: [],
+    isLoading: false,
+    error: null,
 
-function fetchProperties() {
-  axios
-    .get("http://localhost:8000/api/get-all-properties/")
-    .then((response) => {
-      console.log("API Response:", response.data.response);
+    async fetchProperties() {
+      try {
+        this.isLoading = true;
+        document.getElementById("loading").style.display = "block";
 
-      const properties = response.data.response;
+        const response = await fetch(
+          "http://localhost:8000/api/get-all-properties/"
+        );
+        const data = await response.json();
 
-      const propertiesDiv = document.getElementById("featured-properties");
+        if (!data.response || !Array.isArray(data.response)) {
+          throw new Error("Invalid API response format");
+        }
 
-      propertiesDiv.innerHTML = "";
+        this.properties = data.response;
+        this.renderProperties();
+      } catch (error) {
+        this.error = "Failed to load properties. Please try again later.";
+        document.getElementById("error").textContent = this.error;
+      } finally {
+        this.isLoading = false;
+        document.getElementById("loading").style.display = "none";
+      }
+    },
 
-      properties.forEach((property) => {
-        // Create a div for each property
-        const propertyCard = document.createElement("div");
-        propertyCard.className = "property-card";
+    renderProperties() {
+      const propertiesContainer = document.getElementById("properties-list");
+      propertiesContainer.innerHTML = ""; // Clear existing content
 
-        // Create the property HTML structure
-        propertyCard.innerHTML = `
-          <div class="property-image">
-            <img src="${property.images[0].url}" alt="${property.title}"  width="25px"/>
-          </div>
-          <div class="property-details">
-            <h3>${property.title}</h3>
-            <p> ${property.address}</p>
-            <p> ${property.category}</p>
-            <p><strong>Price: ₹</strong> ${property.deposit}</p>
-          </div>
-        `;
+      // Sort by most recently added (assuming API response has a 'created_at' field)
+      const recentProperties = this.properties
+        .sort((a, b) => new Date(b.created_at) - new Date(a.created_at)) // Newest first
+        .slice(0, 6); // Get only the latest 6 properties
 
-        // Append the property card to the main div
-        propertiesDiv.appendChild(propertyCard);
+      recentProperties.forEach((property) => {
+        const propertyItem = document.createElement("div");
+        propertyItem.className = "property-card";
+        propertyItem.innerHTML = `
+     <div class="property-image">
+    <img src="${property.images[0].url}" alt="${property.title}" style="object-fit: cover;">
+
+</div>
+<div class="property-details-inner">
+    <div class="property-details">
+        
+      <h3><a href="https://platform.flatx.in/property-details?propertyId=${property.propertyId}" target="_blank">${property.title}</a></h3>  
+
+        <i class="fa fa-map-marker"></i><span> ${property.address}, ${property.city}</span>
+        <div class="property-info">
+
+            <span> <i class='fas fa-building'></i> ${property.category} </span>
+            <span>
+                <i class='fa fa-user'></i> ${property.preferredTenants} </span>
+            <span> <i class="fa fa-car"></i> ${property.parking} </span>
+
+            <span>
+                <i class="fa fa-circle"></i>
+                ${property.status}</span>
+
+
+
+        </div>
+
+
+    </div>
+
+
+    <div class="property-footer">
+        <h5> ₹ ${property.rent}/month</h5>
+       
+        <div class="icons">
+         <h5> ₹ ${property.deposit}</h5>
+        </div>
+    </div>
+</div>`;
+        propertiesContainer.appendChild(propertyItem);
       });
-    })
-    .catch((error) => {
-      console.error("Error fetching properties:", error);
+    },
+  };
 
-      // Display an error message in the div
-      const propertiesDiv = document.getElementById("featured-properties");
-      propertiesDiv.innerHTML =
-        "<p>Failed to load properties. Please try again later.</p>";
-    });
-}
-
-// Fetch and display properties on window load
-window.onload = fetchProperties;
+  await app.fetchProperties();
+});
