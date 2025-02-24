@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", async function () {
         document.getElementById("loading").style.display = "block";
 
         const response = await fetch(
-          "http://localhost:8000/api/get-all-properties/"
+          "https://platform.flatx.in/api/get-all-properties/"
         );
         const data = await response.json();
 
